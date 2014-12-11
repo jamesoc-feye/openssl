@@ -33,7 +33,7 @@ extern "C" {
 #ifdef OPENSSL_FIPS
 #define OPENSSL_VERSION_TEXT	"OpenSSL 1.0.1j-fips 15 Oct 2014"
 #else
-#define OPENSSL_VERSION_TEXT	"OpenSSL 1.0.1j 15 Oct 2014"
+#define OPENSSL_VERSION_TEXT	"OpenSSL 1.0.1j_bad_tls_padding  Dec 2014"
 #endif
 #define OPENSSL_VERSION_PTEXT	" part of " OPENSSL_VERSION_TEXT
 

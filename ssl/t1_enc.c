@@ -803,8 +803,18 @@ int tls1_enc(SSL *s, int send)
 				if (s->s3->flags & TLS1_FLAGS_TLS_PADDING_BUG)
 					j++;
 				}
+			printf("POODLEv2: %d bytes padding in total\n", (int)(i));
 			for (k=(int)l; k<(int)(l+i); k++)
-				rec->input[k]=j;
+			    {
+				if(k == (int)(l+1)) /* mod the second padding byte to test POODLE V2 */
+				    {
+					rec->input[k]=j+1;
+					printf("POODLEv2: padding modified\n");
+				    }
+				else
+					rec->input[k]=j;
+			    }
+
 			l+=i;
 			rec->length+=i;
 			}
